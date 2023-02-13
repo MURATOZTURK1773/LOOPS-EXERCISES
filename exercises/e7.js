@@ -3,10 +3,25 @@
 // Array example: bankAccounts in /data/data.js
 // getClientWithLeastBalance(bankAccounts) => [{ name: 'SomeName', balance: 32, ... }]
 
-export function getClientWithLeastBalance(array) {
-  // Your code goes here...
+import { bankAccounts } from "../data/data";
+	export function getClientWithLeastBalance(array) {
+	  // Your code goes here...
+	  let minBalance = [];
+	  let min = Infinity;
+	  for(let i = 0; i < array.length; i++) {
+	    if(array[i].balance <= 0) continue;
+	    if(array[i].balance < min) {
+	      min = array[i].balance;
+	    }
+	  }
+	  for(let i = 0; i < array.length; i++) {
+	    if(array[i].balance === min) {
+	      minBalance.push(array[i])
+	    }
+	  }
+	  return minBalance;
+	}
 
-}
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-7"

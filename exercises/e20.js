@@ -7,8 +7,21 @@
 
 export function separateNamesWithAFromRest(array) {
   // Your code goes here...
-
+  const badArray = [[], []];
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array[i].length; j++) {
+      if (array[i][j].toLowerCase() === 'a') {
+        badArray[0].push(array[i]);
+        break;
+      }
+      if (j === array[i].length - 1) {
+        badArray[1].push(array[i]);
+      }
+    }
+  }
+  return badArray;
 }
+
 
 
 // === TEST YOURSELF ===

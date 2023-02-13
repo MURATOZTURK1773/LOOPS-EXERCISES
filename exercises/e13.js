@@ -4,9 +4,21 @@
 // Array example: bankAccounts in /data/data.js
 // getAllAccountsWithSumsOfDepositsLess2000(bankAccounts) => [3432, 43242.34, 23432]
 
+import { bankAccounts } from "../data/data";
+
 export function getAllAccountsWithSumsOfDepositsLess2000(array) {
   // Your code goes here...
-
+  const poorDeposits = [];
+  for (const account of array) {
+    let sum = 0;
+    for (const deposit of account.deposits || []) {
+      sum += deposit;
+    }
+      if(sum < 2000) {
+        poorDeposits.push(account)
+      }
+  }
+  return poorDeposits;
 }
 
 

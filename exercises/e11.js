@@ -1,12 +1,22 @@
 // EXERCISE 11
-// Return an array of withdrawal sums of each bank account.
-// If the account doesn't have withdrawals, it's sum is 0.
+// Return an array of withdrawal sums of each bank account
 // Array example: bankAccounts in /data/data.js
-// getAllWithdrawals(bankAccounts) => [3432, 0, 43242.34, 0, 23432]
+// getAllWithdrawals(bankAccounts) => [3432, 43242.34, 23432]
+
+import { bankAccounts } from "../data/data";
 
 export function getAllWithdrawals(array) {
   // Your code goes here...
-
+  let sum = [];
+  for (let i = 0; i < array.length; i++) {
+    let withdrawals = array[i].withdrawals || [];
+    let total = 0;
+    for (let j = 0; j < withdrawals.length; j++) {
+      total += withdrawals[j];
+    }
+    sum.push(total);
+  }
+  return sum;
 }
 
 // === TEST YOURSELF ===
